@@ -145,6 +145,9 @@ if (!empty($sys_msg)) {
     if ($input['do'] == 'save') {
         $input['do'] = 'add';
     }
+    if ($input['do'] == 'update') {
+        $input['do'] = 'edit';
+    }
 } else {
     switch ($input['do']) {
         case 'save':
