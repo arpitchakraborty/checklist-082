@@ -1,6 +1,8 @@
 #summary How to use checklist-082
 
 How to use?
-  * Check out the project to web accessible directory in your PC or server
+  * Check-out / export the project to web accessible directory in your PC or server
   * You're basically can use it already, by viewing http://localhost/checklist/ (this depend on where u put that checked-out folder)
-  * You may want to adjust the $timezone variable
+  * You may want to adjust these variables: 
+    * $timezone - PHP timezone identifier
+    * $per_page - num of tasks per page
