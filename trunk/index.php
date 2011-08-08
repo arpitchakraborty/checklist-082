@@ -206,6 +206,7 @@ $total_checklist = count($checklist['checklist']);
   <title>Checklist</title>
   <meta http-equiv="content-type" content="text/html;charset=utf-8" />
   <meta name="generator" content="Geany 0.19.1" />
+  <link rel="shortcut icon" type="image/png" href="favicon.png" rel="icon" />
   <link rel="stylesheet" href="style.css" type="text/css" media="screen, projection" />
   <style type="text/css">
     .container { width: 760px; }
