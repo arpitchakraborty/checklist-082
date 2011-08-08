@@ -197,7 +197,21 @@ if (!empty($sys_msg)) {
     }
 }
 ds_set();
-$total_checklist = count($checklist['checklist']);
+$total_checklist = 0;
+if (isset($checklist['checklist'])) {
+    $total_checklist = count($checklist['checklist']);
+    if ($total_checklist > 0) {
+        krsort($checklist['checklist']);
+        $sort = array();
+        $task_id = array();
+        foreach ($checklist['checklist'] as $id => $task) {
+            $task_id[$id] = $task['id'];
+            $sort[$id] = $task['priority'] - $task['status'];
+            $checklist['checklist'][$id]['sort'] = $sort[$id];
+        }
+        array_multisort($sort, SORT_DESC, SORT_NUMERIC, $task_id, SORT_DESC, SORT_NUMERIC, $checklist['checklist']);
+    }
+}
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
@@ -301,7 +315,7 @@ $total_checklist = count($checklist['checklist']);
         <th class="col">Priority</th>
         <th class="col-opt">Options</th>
       </tr>
-      <?php if (!empty($checklist)): krsort($checklist['checklist']); ?>
+      <?php if (isset($checklist['checklist']) && !empty($checklist['checklist'])): ?>
         <?php
         $checklist['checklist'] = array_slice($checklist['checklist'], ($input['pg'] - 1) * $per_page, $per_page);
         foreach ($checklist['checklist'] as $cl): ?>
@@ -315,7 +329,7 @@ $total_checklist = count($checklist['checklist']);
             <td class="col"><?php echo $priority[$cl['priority']]; ?></td>
             <td class="col-opt">
               <a href="index.php?do=edit&id=<?php echo $cl['id']; ?>">Edit</a> &middot;
-              <a href="index.php" class="del" onclick="return delete_task(<?php echo $cl['id']; ?>);" title="Delete task">&times;</a>
+              <a href="index.php" class="del" onclick="return delete_task(<?php echo $cl['id']; ?>);" title="Delete task">&times;</a>(<?php echo $cl['sort'];?>)
             </td>
           </tr>
         <?php endforeach; ?>
