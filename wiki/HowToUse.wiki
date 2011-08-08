@@ -6,3 +6,9 @@ How to use?
   * You may want to adjust these variables: 
     * $timezone - PHP timezone identifier
     * $per_page - num of tasks per page
+
+Run as portable app
+  * Install xampplite on your flash drive
+  * Edit /apache/conf/httpd.conf, set "Listen 80" to different value (e.g 8080)
+  * Check-out / export this project to /xampplite/htdocs
+  * Start xampp, then browse to http://localhost:8080/checklist/, it should be ready for use
