@@ -329,7 +329,7 @@ if (isset($checklist['checklist'])) {
             <td class="col"><?php echo $priority[$cl['priority']]; ?></td>
             <td class="col-opt">
               <a href="index.php?do=edit&id=<?php echo $cl['id']; ?>">Edit</a> &middot;
-              <a href="index.php" class="del" onclick="return delete_task(<?php echo $cl['id']; ?>);" title="Delete task">&times;</a>(<?php echo $cl['sort'];?>)
+              <a href="index.php" class="del" onclick="return delete_task(<?php echo $cl['id']; ?>);" title="Delete task">&times;</a>
             </td>
           </tr>
         <?php endforeach; ?>
