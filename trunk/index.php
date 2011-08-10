@@ -255,6 +255,15 @@ if (isset($checklist['checklist'])) {
 </head>
 
 <body>
+  <?php if (!empty($sys_msg) && ($input['do'] == 'save' || $input['do'] == 'update')): ?>
+    <script type="text/javascript">
+      (function() {
+        setTimeout(function() {
+          window.location.href = 'index.php';
+        }, 2000);
+      })();
+    </script>
+  <?php endif; ?>
   <div class="container">
     <p class="menu">
       <a href="index.php">Home</a> &middot;
