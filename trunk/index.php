@@ -50,7 +50,7 @@ function format_date($format, $timestamp = null) {
     return date($format, $timestamp);
 }
 function clean_str($text) {
-    return stripslashes(htmlentities(trim($text), ENT_QUOTES, 'UTF-8'));
+    return stripslashes(htmlspecialchars(trim($text), ENT_QUOTES, 'UTF-8'));
 }
 function paginate($total_items, $current_page, $url, $per_page) {
     $mid_range = 5;
