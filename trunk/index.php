@@ -227,6 +227,7 @@ if (isset($checklist['checklist'])) {
   <link rel="shortcut icon" type="image/png" href="favicon.png" rel="icon" />
   <link rel="stylesheet" href="style.css" type="text/css" media="screen, projection" />
   <style type="text/css">
+    table { margin-bottom: 5px; }
     .container { width: 760px; }
     .menu { margin: 5px 0; }
     .tasklist, .tasklist td, .tasklist th { border: 1px solid #ccc; border-collapse: collapse; }
@@ -243,7 +244,7 @@ if (isset($checklist['checklist'])) {
     .task_remark { height: 40px; }
     .del { color: #8a1f11; }
     .del:hover { color: #fbc2c4; }
-    .paginate { float: left; margin: 0 0 15px; }
+    .paginate { float: left; margin: 0 0 5px; }
     .paginate ul, .paginate li { list-style: none; display: inline; margin: 0; padding: 0; }
     .paginate li a, .paginate li span { padding: 2px 6px; }
   </style>
@@ -311,6 +312,7 @@ if (isset($checklist['checklist'])) {
         </table>
       </form>
     <?php endif; ?>
+    <?php paginate($total_checklist, $input['pg'], 'index.php?pg=%d', $per_page); ?>
     <table class="tasklist">
       <tr>
         <th class="col-ico">&nbsp;</th>
