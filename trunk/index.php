@@ -165,6 +165,7 @@ if (!empty($sys_msg)) {
                 'priority' => $input['priority'],
                 'last_update' => $timestamp
             );
+            $sys_msg = 'Task saved';
             break;
         case 'edit':
             if (isset($checklist['checklist'][$input['id']])) {
@@ -220,6 +221,9 @@ if (isset($checklist['checklist'])) {
   <title>Checklist</title>
   <meta http-equiv="content-type" content="text/html;charset=utf-8" />
   <meta name="generator" content="Geany 0.19.1" />
+  <?php if (!empty($sys_msg) && ($input['do'] == 'save' || $input['do'] == 'update' || $input['do'] == 'delete')): ?>
+    <meta http-equiv="refresh" content="2; URL=index.php" />
+  <?php endif; ?>
   <link rel="shortcut icon" type="image/png" href="favicon.png" rel="icon" />
   <link rel="stylesheet" href="style.css" type="text/css" media="screen, projection" />
   <style type="text/css">
@@ -255,15 +259,6 @@ if (isset($checklist['checklist'])) {
 </head>
 
 <body>
-  <?php if (!empty($sys_msg) && ($input['do'] == 'save' || $input['do'] == 'update')): ?>
-    <script type="text/javascript">
-      (function() {
-        setTimeout(function() {
-          window.location.href = 'index.php';
-        }, 2000);
-      })();
-    </script>
-  <?php endif; ?>
   <div class="container">
     <p class="menu">
       <a href="index.php">Home</a> &middot;
