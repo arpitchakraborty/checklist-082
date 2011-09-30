@@ -224,7 +224,7 @@ if (isset($checklist['checklist'])) {
   <?php if (!empty($sys_msg) && ($input['do'] == 'save' || $input['do'] == 'update' || $input['do'] == 'delete')): ?>
     <meta http-equiv="refresh" content="2; URL=index.php" />
   <?php endif; ?>
-  <link rel="shortcut icon" type="image/png" href="favicon.png" rel="icon" />
+  <link rel="shortcut icon" type="image/png" href="favicon.png" />
   <link rel="stylesheet" href="style.css" type="text/css" media="screen, projection" />
   <style type="text/css">
     table { margin-bottom: 5px; }
